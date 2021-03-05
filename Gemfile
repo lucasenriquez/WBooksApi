@@ -65,3 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Rubocop
 
 gem 'rubocop', '~> 1.11', require: false
+
+#CircleCI
+gem 'execjs'
+gem 'therubyracer'
