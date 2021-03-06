@@ -69,3 +69,7 @@ gem 'rubocop', '~> 1.11', require: false
 #CircleCI
 gem 'execjs'
 gem 'therubyracer'
+
+#Devise
+
+gem 'devise'
