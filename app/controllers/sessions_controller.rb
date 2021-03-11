@@ -12,6 +12,6 @@ class SessionsController < Devise::SessionsController
 
   def rewrite_param_names
     request.params[:user] =
-      {email: request.params[:session][:email],password: request.params[:session][:password]}
+      { email: request.params[:session][:email], password: request.params[:session][:password] }
   end
 end
