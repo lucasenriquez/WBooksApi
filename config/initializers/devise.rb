@@ -14,7 +14,9 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
+  # rubocop:todo Layout/LineLength
   # config.secret_key = '89a8c78aa6e3b6709e4b3a22480c8d7828e70630a7c7b98273f6f18f5434aa8bae723c6fa615ece97f7276d437a8f93ac176abebc680daee831c4d89e6e6973d'
+  # rubocop:enable Layout/LineLength
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +128,9 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
+  # rubocop:todo Layout/LineLength
   # config.pepper = '462d57b3fb71f5a71e3b4015159ad007fc1114a9db4996b2f10a1e1c6dbeddbd0bad601c781ce7cf214920e1f2527c9c55735226ee8fec5f7d838e99662178a5'
+  # rubocop:enable Layout/LineLength
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -297,14 +301,15 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # ==> Turbolinks configuration
+  # rubocop:todo Layout/LineLength
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
+  # rubocop:enable Layout/LineLength
   #
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
 
   # ==> Configuration for :registerable
-  
 
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
