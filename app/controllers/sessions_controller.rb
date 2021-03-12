@@ -11,6 +11,8 @@ class SessionsController < Devise::SessionsController
   end
 
   def rewrite_param_names
+    return unless params[:session]
+
     request.params[:user] =
       { email: request.params[:session][:email], password: request.params[:session][:password] }
   end
