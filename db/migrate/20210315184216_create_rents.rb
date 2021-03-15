@@ -1,5 +1,5 @@
 class CreateRents < ActiveRecord::Migration[5.2]
-  def change
+  def up
     create_table :rents do |t|
       t.references :user, foreign_key: true
       t.references :book, foreign_key: true
@@ -8,5 +8,8 @@ class CreateRents < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+  end
+  def down
+    drop_table :rents
   end
 end
