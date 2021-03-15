@@ -14,7 +14,7 @@ describe Book, type: :model do
   end
 
   it do
-    should validate_presence_of(:image)
+    should validate_presence_of(:image_url)
   end
 
   it do
@@ -54,9 +54,9 @@ describe Book, type: :model do
       end
     end
 
-    context 'When the image is nil' do
+    context 'When the image_url is nil' do
       subject(:book) do
-        build(:book, image: nil)
+        build(:book, image_url: nil)
       end
       it 'is not valid' do
         is_expected.to be_invalid
