@@ -17,9 +17,7 @@ describe Rent, type: :model do
     should validate_presence_of(:to)
   end
 
-  subject(:rent) do
-    build(:rent)
-  end
+  subject(:rent) { build(:rent) }
   
   it 'is valid' do
     is_expected.to be_valid

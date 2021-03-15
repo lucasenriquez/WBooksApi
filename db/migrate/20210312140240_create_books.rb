@@ -11,6 +11,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+  
   def down
     drop_table :books 
   end
