@@ -26,7 +26,7 @@ describe Book, type: :model do
   end
 
   subject(:book) do
-    build(:book, year: "1990")
+    build(:book)
   end
 
   it 'is valid' do
@@ -36,7 +36,7 @@ describe Book, type: :model do
   describe '#create' do
     context 'When the genre is nil' do
       subject(:book) do
-        build(:book, year: "1990", genre: nil)
+        build(:book, genre: nil)
       end
 
       it 'is not valid' do
@@ -46,7 +46,7 @@ describe Book, type: :model do
 
     context 'When the author is nil' do
       subject(:book) do
-        build(:book, year: "1990", author: nil)
+        build(:book, author: nil)
       end
 
       it 'is not valid' do
@@ -56,7 +56,7 @@ describe Book, type: :model do
 
     context 'When the image is nil' do
       subject(:book) do
-        build(:book, year: "1990", image: nil)
+        build(:book, image: nil)
       end
       it 'is not valid' do
         is_expected.to be_invalid
@@ -65,7 +65,7 @@ describe Book, type: :model do
     
     context 'When the title is nil' do
       subject(:book) do
-        build(:book, year: "1990", title: nil)
+        build(:book, title: nil)
       end
 
       it 'is not valid' do
@@ -74,7 +74,7 @@ describe Book, type: :model do
     end
 
     subject(:book) do
-      build(:book, year: "1990", publisher: nil)
+      build(:book, publisher: nil)
     end
     context 'When the publisher is nil' do
 
