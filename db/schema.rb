@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_140240) do
   create_table "books", force: :cascade do |t|
     t.string "genre", null: false
     t.string "author", null: false
-    t.string "image_url", null: false
+    t.string "image", null: false
     t.string "title", null: false
     t.string "publisher", null: false
     t.string "year", null: false
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2021_03_12_140240) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "password", default: "", null: false
-    t.string "password_confirmation", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
+    t.string "password", null: false
+    t.string "password_confirmation", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
