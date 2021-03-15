@@ -14,6 +14,8 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'database_cleaner-active_record'
+require 'factory_bot_rails'
+require 'faker'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
