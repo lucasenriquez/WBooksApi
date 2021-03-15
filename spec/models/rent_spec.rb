@@ -9,6 +9,14 @@ describe Rent, type: :model do
     should validate_presence_of(:book)
   end
 
+  it do
+    should validate_presence_of(:from)
+  end
+
+  it do
+    should validate_presence_of(:to)
+  end
+
   subject(:rent) do
     build(:rent)
   end
@@ -31,6 +39,26 @@ describe Rent, type: :model do
     context 'When the book is nil' do
       subject(:rent) do
         build(:rent, book: nil)
+      end
+
+      it 'is not valid' do
+        is_expected.to be_invalid
+      end
+    end
+
+    context 'When from is nil' do
+      subject(:rent) do
+        build(:rent, from: nil)
+      end
+
+      it 'is not valid' do
+        is_expected.to be_invalid
+      end
+    end
+
+    context 'When to is nil' do
+      subject(:rent) do
+        build(:rent, to: nil)
       end
 
       it 'is not valid' do
