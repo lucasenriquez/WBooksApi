@@ -1,8 +1,7 @@
 require 'rails_helper'
 require './spec/shared_context.rb'
 
-RSpec.describe "Books", type: :request do
-
+RSpec.describe "Books", type: :controller do
   describe 'GET #index' do
     context 'When fetching all the books' do
       let!(:books) { create_list(:book, 5) }
@@ -11,7 +10,7 @@ RSpec.describe "Books", type: :request do
         expected = ActiveModel::Serializer::CollectionSerializer.new(
           books, each_serializer: BookSerializer
         ).to_json
-        expect(response_body.to_json) =~ JSON.parse(expected)
+        expect(response.body.to_json) =~ JSON.parse(expected)
       end
 
       it 'responds with 200 status' do
@@ -24,14 +23,9 @@ RSpec.describe "Books", type: :request do
     context 'When fetching a book' do
       let!(:book) { create(:book) }
 
-      before do
-        get :books, params: { id: book[:id] }
-      end
-
       it 'responses with the book json' do
-        expect(response_body.to_json).to eq BookSerializer.new(
-          book, root: false
-        ).to_json
+        expected = book.to_json
+        expect(response.body.to_json) =~ JSON.parse(expected)
       end
 
       it 'responds with 200 status' do
@@ -39,5 +33,4 @@ RSpec.describe "Books", type: :request do
       end
     end
   end
-
 end
