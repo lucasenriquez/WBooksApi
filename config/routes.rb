@@ -11,5 +11,5 @@ Rails.application.routes.draw do
                registrations: 'registrations'
              }
   get '/books/:page', to: 'books#index'
-  get '/books/show/:id', to: 'books#show'
+  get '/books/api/v1/books/:id', to: 'books#show'
 end
