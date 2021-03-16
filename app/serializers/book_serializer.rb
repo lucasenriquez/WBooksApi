@@ -9,7 +9,7 @@ class BookSerializer < ActiveModel::Serializer
               :image_url
 
   def available
-    rent = object.rents.where(to: object.rents.select('MAX(rents.to)')).first
+    rent = object.rents.where(to: object.rents.maximum(:to)).first
     rent ? (rent[:to] <= Time.zone.today) : true
   end
 end
