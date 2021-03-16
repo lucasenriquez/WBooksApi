@@ -84,3 +84,9 @@ gem 'devise-jwt', '~> 0.6.0'
 
 #Faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+#Active model serializer 
+gem 'active_model_serializers', '~> 0.10.0'
+
+#Kaminari
+gem 'kaminari'

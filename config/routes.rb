@@ -10,4 +10,6 @@ Rails.application.routes.draw do
                sessions: 'sessions',
                registrations: 'registrations'
              }
+  get '/books/:page', to: 'books#index'
+  get '/books/show/:id', to: 'books#show'
 end
