@@ -1,7 +1,7 @@
 require 'rails_helper'
 require './spec/shared_context.rb'
 
-RSpec.describe "Books", type: :controller do
+RSpec.describe BooksController, type: :controller do
   describe 'GET #index' do
     context 'When fetching all the books' do
       let!(:books) { create_list(:book, 5) }
@@ -22,6 +22,10 @@ RSpec.describe "Books", type: :controller do
   describe 'GET #show' do
     context 'When fetching a book' do
       let!(:book) { create(:book) }
+
+      before do
+        get :show, params: { id: book.id }
+      end
 
       it 'responses with the book json' do
         expected = book.to_json
