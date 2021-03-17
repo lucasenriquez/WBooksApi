@@ -1,7 +1,7 @@
 require 'rails_helper'
-require './spec/shared_context.rb'
+require './spec/shared_context'
 
-RSpec.describe "Books", type: :controller do
+RSpec.describe 'Books', type: :controller do
   describe 'GET #index' do
     context 'When fetching all the books' do
       let!(:books) { create_list(:book, 5) }

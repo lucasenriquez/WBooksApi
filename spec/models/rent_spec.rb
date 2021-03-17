@@ -18,7 +18,7 @@ describe Rent, type: :model do
   end
 
   subject(:rent) { build(:rent) }
-  
+
   it 'is valid' do
     is_expected.to be_valid
   end
