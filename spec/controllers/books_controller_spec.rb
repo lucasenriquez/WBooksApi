@@ -32,5 +32,12 @@ RSpec.describe "Books", type: :controller do
         expect(response).to have_http_status(:ok)
       end
     end
+
+    context 'When a book does not exists' do
+    rescue ActiveRecord::RecordNotFound
+      it 'responds with 404 status' do
+        expect(response).to have_http_status(:error)
+      end
+    end
   end
 end
