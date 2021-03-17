@@ -6,7 +6,7 @@ RSpec.describe BooksController, type: :controller do
     context 'When fetching all the books' do
       let!(:books) { create_list(:book, 5) }
 
-      it 'responses with the books json' do
+      it 'responds with the books json' do
         expected = ActiveModel::Serializer::CollectionSerializer.new(
           books, each_serializer: BookSerializer
         ).to_json
@@ -27,7 +27,7 @@ RSpec.describe BooksController, type: :controller do
         get :show, params: { id: book.id }
       end
 
-      it 'responses with the book json' do
+      it 'responds with the book json' do
         expected = book.to_json
         expect(response.body.to_json) =~ JSON.parse(expected)
       end
@@ -37,17 +37,16 @@ RSpec.describe BooksController, type: :controller do
       end
     end
 
-    context 'When a book does not exists' do
+    context 'When a book does not exist' do
     
-    let!(:book) { create(:book, id: 1) }
+      let!(:book) { create(:book, id: 1) }
 
-    before do
-      get :show, params: { id: 5 }
-    end
+      before do
+        get :show, params: { id: 5 }
+      end
 
-    rescue ActiveRecord::RecordNotFound
       it 'responds with 404 status' do
-        expect(response).to have_http_status(:error)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
