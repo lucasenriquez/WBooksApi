@@ -38,6 +38,13 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context 'When a book does not exists' do
+    
+    let!(:book) { create(:book, id: 1) }
+
+    before do
+      get :show, params: { id: 5 }
+    end
+
     rescue ActiveRecord::RecordNotFound
       it 'responds with 404 status' do
         expect(response).to have_http_status(:error)
