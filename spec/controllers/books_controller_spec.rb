@@ -38,7 +38,6 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context 'When a book does not exist' do
-    
       let!(:book) { create(:book, id: 1) }
 
       before do
