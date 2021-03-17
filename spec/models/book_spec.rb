@@ -62,7 +62,7 @@ describe Book, type: :model do
         is_expected.to be_invalid
       end
     end
-
+    
     context 'When the title is nil' do
       subject(:book) do
         build(:book, title: nil)
@@ -77,11 +77,12 @@ describe Book, type: :model do
       build(:book, publisher: nil)
     end
     context 'When the publisher is nil' do
+
       it 'is not valid' do
         is_expected.to be_invalid
       end
     end
-
+    
     context 'When the year is nil' do
       subject(:book) do
         build(:book, year: nil)

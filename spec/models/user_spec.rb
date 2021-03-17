@@ -12,7 +12,7 @@ describe User, type: :model do
   subject(:user) do
     build(:user)
   end
-
+  
   it 'is valid' do
     is_expected.to be_valid
   end
