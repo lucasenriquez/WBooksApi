@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  # before_action :authenticate_user!
   def index
     @books = Book.all
     render json: Kaminari.paginate_array(@books).page(params[:page])
@@ -6,6 +7,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    render json: @book
+    render json: @book, status: :ok
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'not-found' }, status: :not_found
   end
 end
