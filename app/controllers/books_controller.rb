@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  # before_action :authenticate_user!
   def index
     @books = Book.all
     render json: Kaminari.paginate_array(@books).page(params[:page])
