@@ -3,7 +3,7 @@
 #
 # Examples:
 #
-50.times do 
+=begin 50.times do 
     Book.create(
       title: Faker::Book.title,
       author: Faker::Book.author,
@@ -12,4 +12,4 @@
       publisher: Faker::Book.publisher,
       year: Faker::Date.birthday(min_age: 1, max_age: 95).year.to_s
     )
-end
+end =end

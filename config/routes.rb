@@ -12,4 +12,7 @@ Rails.application.routes.draw do
              }
   get '/books', to: 'books#index'
   get '/books/:id', to: 'books#show'
+
+  post '/api/v1/rents', to: 'rents#create'
+  get '/api/v1/rents', to: 'rents#index'
 end
