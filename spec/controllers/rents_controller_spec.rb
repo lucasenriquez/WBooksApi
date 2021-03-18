@@ -32,7 +32,7 @@ RSpec.describe RentsController, type: :controller do
     end
   end
 
-  describe 'GET #create' do
+  describe 'POST #create' do
     context 'When creating a rent' do
       let!(:rent) { create(:rent) }
 

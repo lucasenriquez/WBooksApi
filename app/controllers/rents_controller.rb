@@ -3,12 +3,10 @@ class RentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    rent = current_user.rents
-    if rent == []
-      render json: { error: 'The user has no rents' }, status: :not_found
-    else
-      render json: rent
-    end
+    rents = current_user.rents
+    return render json: { error: 'The user has no rents' }, status: :not_found if rents.empty?
+
+    render json: rents
   end
 
   def create
