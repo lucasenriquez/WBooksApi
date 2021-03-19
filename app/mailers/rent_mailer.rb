@@ -4,9 +4,11 @@ class RentMailer < ApplicationMailer
   #
   #   en.rent_mailer.send.subject
   #
-  def create(book, rent)
-    @rent = rent
-    @book = book
-    mail to: current_user.email, subject: 'New rent'
+  def create(from, to, first_name, email, title)
+    @title = title
+    @from = from
+    @to = to
+    @first_name = first_name
+    mail to: email, subject: 'New rent'
   end
 end

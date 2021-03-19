@@ -1,14 +1,14 @@
-<h1>Hi, <%= current_user.name %>!</h1>
+<h1>Hi, <%= @first_name %></h1>
 
 <p>
-  We send you this email to confirm the rent of your book <%= @book.title %>. </p>
+  We send you this email to confirm the rent of your book <%= @title %>. </p>
   <p>If you didn't do this, please check your password and comunicate to lucas@wbooksapi.com.</p>
 
   <h5>Rent:</h5>
   <ul>
-  <li>Book title: <%= @book.title %> </li>
-  <li>From: <%= @rent.from %> </li>
-  <li>To: <%= @rent.to %> </li>
+  <li>Book title: <%= @title %> </li>
+  <li>From: <%= @from %> </li>
+  <li>To: <%= @to %> </li>
   </ul>
 
  <p>Thanks!</p>
