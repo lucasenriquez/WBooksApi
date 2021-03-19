@@ -11,8 +11,10 @@ class RentsController < ApplicationController
 
   def create
     book = Book.find(params[:rent][:book_id])
-    render json: Rent.create(user: current_user, book: book,
-                             from: params[:rent][:from], to: params[:rent][:to])
+    rent = Rent.create(user: current_user, book: book,
+                       from: params[:rent][:from], to: params[:rent][:to])
+    EmailWorker.perform_async(book, rent)
+    render json: rent
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'The book you specified was not found' },
            status: :unprocessable_entity

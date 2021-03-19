@@ -6,7 +6,6 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    MailerMailer.create.deliver
     render json: @book, status: :ok
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'not-found' }, status: :not_found

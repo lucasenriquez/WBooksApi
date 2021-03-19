@@ -90,3 +90,6 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 #Kaminari
 gem 'kaminari'
+
+#Sideqik
+gem 'sidekiq'
