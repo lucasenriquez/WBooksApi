@@ -1,13 +1,8 @@
 require 'rails_helper'
-require 'devise/jwt/test_helpers'
+require './spec/shared_contexts/shared_context.rb'
 
 RSpec.describe RentsController, type: :controller do
-  let(:user) { create(:user) }
-  let!(:auth_headers) { Devise::JWT::TestHelpers.auth_headers({}, user) }
-
-  before do
-    request.headers['Authorization'] = auth_headers['Authorization']
-  end
+  include_context 'Authenticated User'
 
   describe 'GET #index' do
     context 'When fetching all the rents' do
