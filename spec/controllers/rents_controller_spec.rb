@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/shared_context.rb'
+require './spec/shared_contexts/shared_context.rb'
 
 RSpec.describe RentsController, type: :controller do
   include_context 'Authenticated User'
