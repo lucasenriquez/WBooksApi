@@ -17,6 +17,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: wbooks-api_test
           POSTGRES_PASSWORD:
+          DEVISE_JWT_SECRET_KEY: $DEVISE_JWT_SECRET_KEY
 
     steps:
       - checkout
