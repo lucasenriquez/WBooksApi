@@ -12,7 +12,8 @@ class RentsController < ApplicationController
 
   def create
     @book = Book.find(params[:rent][:book_id])
-    render json: Rent.create(user: current_user, book: @book,
+    @user = current_user
+    render json: Rent.create(user: current_user, book: book,
                              from: params[:rent][:from], to: params[:rent][:to])
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'The book you specified was not found' },
@@ -20,6 +21,6 @@ class RentsController < ApplicationController
   end
 
   def sendmail
-    EmailWorker.perform_async(current_user[:email], current_user[:fist_name], @book[:title])
+    EmailWorker.perform_async(@user[:email], @user[:fist_name], @book[:title]) if @book
   end
 end
