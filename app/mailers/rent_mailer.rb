@@ -4,7 +4,7 @@ class RentMailer < ApplicationMailer
   #
   #   en.rent_mailer.send.subject
   #
-  def newRent(email, first_name, title)
+  def new_rent(email, first_name, title)
     @title = title
     @first_name = first_name
     mail to: email, subject: 'New rent'
