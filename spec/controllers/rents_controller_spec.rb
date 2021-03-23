@@ -35,10 +35,16 @@ RSpec.describe RentsController, type: :controller do
   describe 'POST #create' do
     context 'When creating a rent' do
       let!(:rent) { create(:rent) }
+      let(:user) { build(:user, email: "lucas.enriquez@widergy.com") }
+      let(:book) { build(:book)}
 
       it 'responds with the rent json' do
         expected = rent.to_json
         expect(response.body.to_json) =~ JSON.parse(expected)
+      end
+
+      it 'sends an email to user' do
+        RentEmailWorker.perform_async(user[:email], user[:first_name], book[:title])
       end
 
       it 'responds with 200 status' do
