@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/shared_context.rb'
+require './spec/shared_contexts/shared_context.rb'
 
 RSpec.describe RentsController, type: :controller do
   include_context 'Authenticated User'
@@ -35,12 +35,22 @@ RSpec.describe RentsController, type: :controller do
   describe 'POST #create' do
     context 'When creating a rent' do
       let!(:rent) { create(:rent) }
+      let!(:book) { create(:book) }
+
+      subject do
+        post :create, params: { rent: {book_id: book[:id]} }
+      end
 
       it 'responds with the rent json' do
         expected = rent.to_json
         expect(response.body.to_json) =~ JSON.parse(expected)
       end
 
+      it 'sends an email to user' do
+        expect(RentEmailWorker).to receive(:perform_async).once
+        subject 
+      end
+      
       it 'responds with 200 status' do
         expect(response).to have_http_status(:ok)
       end
