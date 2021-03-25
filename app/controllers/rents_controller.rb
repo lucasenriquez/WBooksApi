@@ -1,7 +1,7 @@
 class RentsController < ApplicationController
   respond_to :json
   before_action :authenticate_user!
-  after_action :send_mail, only: [:create]
+  after_action :send_mail, only: [:create], if: -> {@book}
 
   def index
     rents = current_user.rents
@@ -24,7 +24,7 @@ class RentsController < ApplicationController
 
   def send_mail
     user = current_user
-    title = @book[:title] if @book
-    RentEmailWorker.perform_async(user[:email], user[:fist_name], title, @from, @to) if @book
+    title = @book[:title]
+    RentEmailWorker.perform_async(user[:email], user[:fist_name], title, @from, @to)
   end
 end
