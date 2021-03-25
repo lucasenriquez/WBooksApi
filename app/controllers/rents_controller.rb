@@ -13,7 +13,7 @@ class RentsController < ApplicationController
   def create
     @book = Book.find(params[:rent][:book_id])
     @rent = Rent.create(user: current_user, book: @book,
-                             from: params[:rent][:from], to: params[:rent][:to])
+                        from: params[:rent][:from], to: params[:rent][:to])
     @from = @rent[:from]
     @to = @rent[:to]
     render json: @rent
@@ -24,6 +24,7 @@ class RentsController < ApplicationController
 
   def send_mail
     user = current_user
-    RentEmailWorker.perform_async(user[:email], user[:fist_name], @book[:title], @from, @to) if @book
+    title = @book[:title]
+    RentEmailWorker.perform_async(user[:email], user[:fist_name], title, @from, @to) if @book
   end
 end
