@@ -1,7 +1,7 @@
 class RentsController < ApplicationController
   respond_to :json
   before_action :authenticate_user!
-  after_action :send_mail, only: [:create], if: -> {@book}
+  after_action :send_mail, only: [:create], if: -> { @book }
 
   def index
     rents = current_user.rents
