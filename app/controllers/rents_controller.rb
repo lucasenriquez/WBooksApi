@@ -24,7 +24,7 @@ class RentsController < ApplicationController
 
   def send_mail
     user = current_user
-    title = @book[:title]
+    title = @book[:title] if @book
     RentEmailWorker.perform_async(user[:email], user[:fist_name], title, @from, @to) if @book
   end
 end
