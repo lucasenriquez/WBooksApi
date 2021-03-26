@@ -5,10 +5,11 @@ class RentMailer < ApplicationMailer
   #   en.rent_mailer.send.subject
   #
   def new_rent(email, first_name, title, to, locale)
-    I18n.locale = locale
-    @to = to
-    @title = title
-    @first_name = first_name
-    mail to: email, subject: t(:new_rent)
+    I18n.with_locale(locale) do
+      @to = to
+      @title = title
+      @first_name = first_name
+      mail to: email, subject: t(:new_rent)
+    end
   end
 end
