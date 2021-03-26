@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  new_rent: "New rent"
+  hello: "Hi"
+  msg: "We send you this email to confirm the rent of your book "
+  warning: "If you didn't do this, please check your password and comunicate to lucas@wbooksapi.com."
+  rent: "Rent"
+  book: "Book title"
+  to: "To"
+  thanks: "Thanks!"

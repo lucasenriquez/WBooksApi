@@ -92,3 +92,6 @@ gem 'kaminari'
 
 #Sideqik
 gem 'sidekiq'
+
+#i18n
+gem 'i18n'
