@@ -1,7 +1,7 @@
 class RentEmailWorker
   include Sidekiq::Worker
 
-  def perform(email, first_name, title, from, to)
-    RentMailer.new_rent(email, first_name, title, from, to).deliver
+  def perform(email, first_name, title, to, locale)
+    RentMailer.new_rent(email, first_name, title, to, locale).deliver
   end
 end

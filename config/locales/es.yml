@@ -1,0 +1,10 @@
+es:
+  new_rent: "Nuevo alquiler"
+  hello: "Hola"
+  msg: "Te enviamos este mensaje para confirmar el alquiler de tu libro "
+  warning: "Si tu no hiciste esto, por favor chequea tu contraseña y comunicate
+  con lucas@wbooksapi.com."
+  rent: "Alquiler"
+  book: "Título del libro"
+  to: "Hasta"
+  thanks: "¡Gracias!"

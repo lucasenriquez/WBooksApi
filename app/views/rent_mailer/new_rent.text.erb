@@ -1,13 +1,12 @@
-Hi, <%= @first_name %>!
+<%= t :hello %><%= @first_name %>
 
 
-We send you this email to confirm the rent of your book <%= @title %>.
-If you didn't do this, please check your password and comunicate to lucas@wbooksapi.com.
+<%= t :msg%><%=  @title %>. 
+<p><%= t :warning %>. 
 
-Rent:
+<%= t :rent %>:
 
-Book title: <%= @title %>
-From: <%= @from %>
-To: <%= @to %>
+<%= t :book %> <%= @title %>
+<%= t :to %>: <%= @to %> 
 
-Thanks!
+<%= t :thanks %>
