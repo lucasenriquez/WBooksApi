@@ -15,7 +15,6 @@ class RentsController < ApiController
     @book = Book.find(params[:rent][:book_id])
     @rent = Rent.create(user: current_user, book: @book,
                         from: params[:rent][:from], to: params[:rent][:to])
-    authorize @rents
     render json: @rent
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'The book you specified was not found' },

@@ -8,7 +8,7 @@ class RentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    return true if user.present? && user == rent.user
+    return true if user.present? && user == rent[1].user
   end
 
   private
