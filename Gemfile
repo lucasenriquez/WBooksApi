@@ -96,4 +96,8 @@ gem 'sidekiq'
 #i18n
 gem 'i18n'
 
+#Activeadmin
 gem 'activeadmin'
+
+#Pundit
+gem 'pundit'
