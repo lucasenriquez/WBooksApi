@@ -4,11 +4,11 @@ class RentPolicy < ApplicationPolicy
   end
 
   def index?
-    return true if user.present? && user == rent[1].user
+    return true if user.present? && user == rent[0].user
   end
 
   def destroy?
-    return true if user.present? && user == rent[1].user
+    return true if user.present? && user == rent[0].user
   end
 
   private
