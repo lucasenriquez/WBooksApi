@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :user_admins, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users,
              path: '',
              path_names: {

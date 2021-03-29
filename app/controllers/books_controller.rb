@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class BooksController < ApiController
   def index
     @books = Book.all
     render json: Kaminari.paginate_array(@books).page(params[:page])
