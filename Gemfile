@@ -95,3 +95,5 @@ gem 'sidekiq'
 
 #i18n
 gem 'i18n'
+
+gem 'activeadmin'

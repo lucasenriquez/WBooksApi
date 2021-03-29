@@ -13,3 +13,4 @@
       year: Faker::Date.birthday(min_age: 1, max_age: 95).year.to_s
     )
 end
+UserAdmin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

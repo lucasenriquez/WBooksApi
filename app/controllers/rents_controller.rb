@@ -1,4 +1,4 @@
-class RentsController < ApplicationController
+class RentsController < ApiController
   respond_to :json
   before_action :authenticate_user!
   after_action :send_mail, only: [:create], if: -> { @book }

@@ -1,22 +1,11 @@
-class ApplicationController < ActionController::API
-  def render_resource(resource)
-    if resource.errors.empty?
-      render json: resource
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token
+  def authenticate_user_admin!
+    if user_admin_signed_in?
+      super
     else
-      validation_error(resource)
+      redirect_to new_user_admin_session_path
     end
-  end
-
-  def validation_error(resource)
-    render json: {
-      errors: [
-        {
-          status: '400',
-          title: 'Bad Request',
-          detail: resource.errors,
-          code: '100'
-        }
-      ]
-    }, status: :bad_request
   end
 end
