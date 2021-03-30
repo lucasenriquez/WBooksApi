@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_233240) do
     t.string "author", null: false
     t.string "title", null: false
     t.string "link", null: false
-    t.string "publishe"
+    t.string "publisher"
     t.string "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
