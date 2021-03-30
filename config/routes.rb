@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   post '/api/v1/rents', to: 'rents#create'
   get '/api/v1/rents', to: 'rents#index'
+
+  post '/api/v1/book-suggestion', to: 'book_suggestion#create'
 end

@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 2021_03_29_233240) do
 
   create_table "book_suggestions", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "editorial", null: false
-    t.float "price", null: false
+    t.string "editorial"
+    t.float "price"
     t.string "author", null: false
     t.string "title", null: false
     t.string "link", null: false
-    t.string "publisher", null: false
-    t.string "year", null: false
+    t.string "publishe"
+    t.string "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_book_suggestions_on_user_id"
