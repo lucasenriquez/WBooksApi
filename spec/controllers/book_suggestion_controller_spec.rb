@@ -4,7 +4,7 @@ RSpec.describe BookSuggestionController, type: :controller do
 
   describe 'POST #create' do
     context 'When creating a book suggestion' do
-      let!(:book_suggestion) { create(:book_suggestion) }
+      let!(:book_suggestion) { build(:book_suggestion) }
 
       subject do
         post :create
@@ -21,7 +21,7 @@ RSpec.describe BookSuggestionController, type: :controller do
     end
 
     context 'When a guest creates a book suggestion' do
-      let!(:book_suggestion) { create(:book_suggestion, user: nil) }
+      let!(:book_suggestion) { build(:book_suggestion, user: nil) }
 
       subject do
         post :create
