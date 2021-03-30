@@ -48,10 +48,10 @@ describe BookSuggestion, type: :model do
       subject(:book_suggestion) do
         build(:book_suggestion, link: nil)
       end
+
       it 'is not valid' do
         is_expected.to be_invalid
       end
     end
   end
 end
-
