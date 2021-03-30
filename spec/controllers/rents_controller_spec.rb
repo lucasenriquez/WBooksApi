@@ -14,6 +14,12 @@ RSpec.describe RentsController, type: :controller do
         expect(response.body.to_json) =~ JSON.parse(expected)
       end
 
+      before do
+        get :index
+        allow_any_instance_of(RentPolicy).to(
+          receive(:index?).and_return(true))
+      end
+
       it 'responds with 200 status' do
         expect(response).to have_http_status(:ok)
       end

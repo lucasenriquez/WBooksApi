@@ -4,18 +4,17 @@ class RentsController < ApiController
   after_action :send_mail, only: [:create], if: -> { @book }
 
   def index
-    rents = current_user.rents
-    return render json: { error: 'The user has no rents' }, status: :not_found if rents.empty?
+    @rents = current_user.rents
+    return render json: { error: 'The user has no rents' }, status: :not_found if @rents.empty?
 
-    render json: rents
+    authorize @rents
+    render json: @rents
   end
 
   def create
     @book = Book.find(params[:rent][:book_id])
     @rent = Rent.create(user: current_user, book: @book,
                         from: params[:rent][:from], to: params[:rent][:to])
-    @from = @rent[:from]
-    @to = @rent[:to]
     render json: @rent
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'The book you specified was not found' },
@@ -25,6 +24,6 @@ class RentsController < ApiController
   def send_mail
     user = current_user
     title = @book[:title]
-    RentEmailWorker.perform_async(user[:email], user[:fist_name], title, @to, user[:locale])
+    RentEmailWorker.perform_async(user[:email], user[:fist_name], title, @rent[:to], user[:locale])
   end
 end

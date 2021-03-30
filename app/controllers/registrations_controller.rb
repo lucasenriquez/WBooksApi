@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_flash_message! :notice, :signed_up
       sign_up(resource_name, resource)
     end
-    render_resource(resource)
+    render json: resource
   end
 
   private
