@@ -103,5 +103,5 @@ gem 'activeadmin'
 gem 'pundit'
 
 #Omniauth
-gem 'omniauth-google-oauth2', '~> 0.8.0'
-#gem 'omniauth-rails_csrf_protection'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2', '0.8.0'
