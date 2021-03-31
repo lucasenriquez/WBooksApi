@@ -1,7 +1,7 @@
 class BooksController < ApiController
+  include Wor::Paginate
   def index
-    @books = Book.all
-    render json: Kaminari.paginate_array(@books).page(params[:page])
+    render_paginated Book
   end
 
   def show
