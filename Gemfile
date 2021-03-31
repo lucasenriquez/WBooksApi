@@ -78,7 +78,7 @@ gem 'therubyracer'
 # Devise
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'devise-jwt', '~> 0.6.0'
 
 #Faker
@@ -101,3 +101,7 @@ gem 'activeadmin'
 
 #Pundit
 gem 'pundit'
+
+#Omniauth
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2', '0.8.0'
