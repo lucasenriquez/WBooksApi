@@ -12,7 +12,8 @@ Rails.application.routes.draw do
              },
              controllers: {
                sessions: 'sessions',
-               registrations: 'registrations'
+               registrations: 'registrations',
+               omniauth_callbacks: 'users/omniauth_callbacks'
              }
       resources :books, only: [:index, :show] do
         collection do
