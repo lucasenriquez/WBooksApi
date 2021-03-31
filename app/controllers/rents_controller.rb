@@ -6,7 +6,7 @@ class RentsController < ApiController
 
   def index
     @rents = current_user.rents
-    return json: { error: 'The user has no rents' }, status: :not_found if @rents.empty?
+    return render json: { error: 'The user has no rents' }, status: :not_found if @rents.empty?
 
     authorize @rents
     render_paginated @rents
