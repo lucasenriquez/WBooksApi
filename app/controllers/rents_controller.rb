@@ -1,14 +1,15 @@
 class RentsController < ApiController
+  include Wor::Paginate
   respond_to :json
   before_action :authenticate_user!
   after_action :send_mail, only: [:create], if: -> { @book }
 
   def index
     @rents = current_user.rents
-    return render json: { error: 'The user has no rents' }, status: :not_found if @rents.empty?
+    return json: { error: 'The user has no rents' }, status: :not_found if @rents.empty?
 
     authorize @rents
-    render json: @rents
+    render_paginated @rents
   end
 
   def create

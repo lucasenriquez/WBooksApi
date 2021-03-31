@@ -105,3 +105,6 @@ gem 'pundit'
 #Omniauth
 gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2', '0.8.0'
+
+#wor-paginate
+gem 'wor-paginate'
