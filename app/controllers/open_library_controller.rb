@@ -1,9 +1,8 @@
 class OpenLibraryController < ApiController
-    respond_to :json
+  respond_to :json
 
-    def book_info
-      book = AsyncRequest::Job.create_and_enqueue(OpenLibraryService, params[:bibkeys])
-      #book = async_request.OpenLibraryService.call(params[:bibkeys])
-      render json: book, status: :ok
-    end
+  def book_info
+    book = OpenLibraryService.call(params[:bibkeys])
+    render json: book
+  end
 end
