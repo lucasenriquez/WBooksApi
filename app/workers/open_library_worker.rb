@@ -2,6 +2,6 @@ class OpenLibraryWorker
   include Sidekiq::Worker
 
   def perform(bibkeys)
-    OpenLibraryService.call(bibkeys)
+    OpenLibraryService.execute(bibkeys)
   end
 end

@@ -398,7 +398,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   activeadmin
-  async_request (= 0.0.7)
+  async_request
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -427,7 +427,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   shoulda-matchers (~> 4.0)
-  sidekiq (= 4.0)
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   therubyracer

@@ -91,7 +91,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'kaminari'
 
 #Sideqik
-gem 'sidekiq', '4.0'
+gem 'sidekiq'
 
 #i18n
 gem 'i18n'
@@ -110,7 +110,7 @@ gem 'omniauth-google-oauth2', '0.8.0'
 gem 'wor-paginate'
 
 #Async request
-gem 'async_request', '0.0.7'
+gem 'async_request'
 
 #Httparty
 gem 'httparty'
