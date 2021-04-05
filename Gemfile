@@ -108,3 +108,9 @@ gem 'omniauth-google-oauth2', '0.8.0'
 
 #wor-paginate
 gem 'wor-paginate'
+
+#Async request
+gem 'async_request'
+
+#Httparty
+gem 'httparty'

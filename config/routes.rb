@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         end
       end
       resources :rents, only: [:index, :create] 
+      get '/info' , to: 'open_library#book_info'
     end
   end
 end
