@@ -17,7 +17,7 @@ Rails.application.routes.draw do
              }
       resources :books, only: [:index, :show] do
         collection do
-         resources :book_suggestions, only: [:create], path: 'suggestions'
+         resources :book_suggestions, only: [:create, :destroy], path: 'suggestions'
         end
       end
       resources :rents, only: [:index, :create] 
