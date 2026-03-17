@@ -1,5 +1,5 @@
 class BookSuggestionsController < ApiController
-  before_action :authenticate_user!, only: [:destroy]
+  before_action :authenticate_user!
 
   def create
     all_params = create_params.merge(user: current_user)
